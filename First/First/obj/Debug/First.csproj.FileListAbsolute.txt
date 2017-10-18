@@ -1,0 +1,9 @@
+C:\Users\Андрей\source\repos\First\First\bin\Debug\First.exe.config
+C:\Users\Андрей\source\repos\First\First\bin\Debug\First.exe
+C:\Users\Андрей\source\repos\First\First\bin\Debug\First.pdb
+C:\Users\Андрей\source\repos\First\First\obj\Debug\First.csprojResolveAssemblyReference.cache
+C:\Users\Андрей\source\repos\First\First\obj\Debug\First.csproj.CoreCompileInputs.cache
+C:\Users\Андрей\source\repos\First\First\obj\Debug\First.exe
+C:\Users\Андрей\source\repos\First\First\obj\Debug\First.pdb
+C:\Users\Андрей\source\repos\First\First\bin\Debug\System.ValueTuple.dll
+C:\Users\Андрей\source\repos\First\First\bin\Debug\System.ValueTuple.xml

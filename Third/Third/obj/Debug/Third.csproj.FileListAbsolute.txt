@@ -1,0 +1,7 @@
+C:\Users\Андрей\source\repos\Third\Third\bin\Debug\Third.exe.config
+C:\Users\Андрей\source\repos\Third\Third\bin\Debug\Third.exe
+C:\Users\Андрей\source\repos\Third\Third\bin\Debug\Third.pdb
+C:\Users\Андрей\source\repos\Third\Third\obj\Debug\Third.csprojResolveAssemblyReference.cache
+C:\Users\Андрей\source\repos\Third\Third\obj\Debug\Third.csproj.CoreCompileInputs.cache
+C:\Users\Андрей\source\repos\Third\Third\obj\Debug\Third.exe
+C:\Users\Андрей\source\repos\Third\Third\obj\Debug\Third.pdb

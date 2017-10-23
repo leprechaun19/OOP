@@ -1,0 +1,7 @@
+C:\Users\User\source\Fouth\Fouth\bin\Debug\Fouth.exe.config
+C:\Users\User\source\Fouth\Fouth\bin\Debug\Fouth.exe
+C:\Users\User\source\Fouth\Fouth\bin\Debug\Fouth.pdb
+C:\Users\User\source\Fouth\Fouth\obj\Debug\Fouth.csprojResolveAssemblyReference.cache
+C:\Users\User\source\Fouth\Fouth\obj\Debug\Fouth.csproj.CoreCompileInputs.cache
+C:\Users\User\source\Fouth\Fouth\obj\Debug\Fouth.exe
+C:\Users\User\source\Fouth\Fouth\obj\Debug\Fouth.pdb

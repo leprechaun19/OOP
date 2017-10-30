@@ -1,0 +1,14 @@
+C:\Users\User\AppData\Local\Temporary Projects\Fifth\bin\Debug\Fifth.exe.config
+C:\Users\User\AppData\Local\Temporary Projects\Fifth\bin\Debug\Fifth.exe
+C:\Users\User\AppData\Local\Temporary Projects\Fifth\bin\Debug\Fifth.pdb
+C:\Users\User\AppData\Local\Temporary Projects\Fifth\obj\Debug\Fifth.csprojResolveAssemblyReference.cache
+C:\Users\User\AppData\Local\Temporary Projects\Fifth\obj\Debug\Fifth.csproj.CoreCompileInputs.cache
+C:\Users\User\AppData\Local\Temporary Projects\Fifth\obj\Debug\Fifth.exe
+C:\Users\User\AppData\Local\Temporary Projects\Fifth\obj\Debug\Fifth.pdb
+C:\Users\User\source\Fifth\Fifth\bin\Debug\Fifth.exe.config
+C:\Users\User\source\Fifth\Fifth\bin\Debug\Fifth.exe
+C:\Users\User\source\Fifth\Fifth\bin\Debug\Fifth.pdb
+C:\Users\User\source\Fifth\Fifth\obj\Debug\Fifth.csprojResolveAssemblyReference.cache
+C:\Users\User\source\Fifth\Fifth\obj\Debug\Fifth.csproj.CoreCompileInputs.cache
+C:\Users\User\source\Fifth\Fifth\obj\Debug\Fifth.exe
+C:\Users\User\source\Fifth\Fifth\obj\Debug\Fifth.pdb

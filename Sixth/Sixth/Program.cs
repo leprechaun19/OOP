@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fifth
+namespace Sixth
 {
     interface IOperations
     {
@@ -19,7 +20,7 @@ namespace Fifth
     {
         private string inter;
     }
-    abstract class Person
+     abstract class Person
     {
         private string FirstName;
         private string Surname;
@@ -36,17 +37,31 @@ namespace Fifth
         }
         public abstract bool Equals(Client obj);
     }
-     class Client : Person
+       class Client : Person
     {
         private string PassportNumber;
         private string IDNumber;
         private int counterAccounts = 0;
-        private Account[] accounts = new Account[5]; 
+        private Account[] accounts = new Account[5];
         public Client(string name, string surname, string address, string passportNumber, string idNumber)
             : base(name, surname, address)
         {
-            PassportNumber = passportNumber;
-            IDNumber = idNumber;
+            if(passportNumber.GetType() != PassportNumber.GetType())
+            {
+                throw new ClientException("Неверно введен номер паспорта!");
+            }
+            else
+            {
+                PassportNumber = passportNumber;
+            }
+            if (idNumber.GetType() != IDNumber.GetType())
+            {
+                throw new ClientException("Неверно введен идентификационный номер паспорта!");
+            }
+            else
+            {
+                IDNumber = idNumber;
+            }
         }
         public Account[] Accounts
         {
@@ -54,7 +69,7 @@ namespace Fifth
             {
                 return accounts;
             }
-        } 
+        }
         public void GetAccount(Account account)
         {
             accounts[counterAccounts] = account;
@@ -63,7 +78,7 @@ namespace Fifth
         public override bool Equals(Client obj)
         {
             bool equal;
-            if(obj.IDNumber == this.IDNumber)
+            if (obj.IDNumber == this.IDNumber)
             {
                 equal = true;
             }
@@ -78,7 +93,7 @@ namespace Fifth
             Console.WriteLine(base.ToString());
             for (int i = 0; i < counterAccounts; i++)
             {
-                Console.WriteLine((i+1) + "-ый счет" + accounts[i].ToString());
+                Console.WriteLine((i + 1) + "-ый счет" + accounts[i].ToString());
             }
             return String.Format("ID number - " + IDNumber + "\n" + "PassportNumber - " + PassportNumber + "\n");
         }
@@ -89,8 +104,23 @@ namespace Fifth
         private string AccountNumber;
         public Account(string accountNumber, double Summa)
         {
-            AccountNumber = accountNumber;
-            sum =+ Summa;
+            if (accountNumber.GetType() != AccountNumber.GetType())
+            {
+                throw new AccountException("неправильно введен номер счета");
+            }
+            else
+            {
+                AccountNumber = accountNumber;
+            }
+            if (sum.GetType() != Summa.GetType())
+            {
+                throw new AccountException("неправильно введена сумма");
+            }
+            else
+            {
+                sum += Summa;
+            }
+            sum += Summa;
         }
         public double Sum
         {
@@ -103,7 +133,7 @@ namespace Fifth
         public abstract void GetInformation();
         void IOperations.TransferMoney() { }
         void IOperations.WithdrawMoney() { }
-        
+
         public override string ToString()
         {
             return String.Format("Номер счета: " + AccountNumber + "\n");
@@ -172,7 +202,7 @@ namespace Fifth
         List<Client> clients = new List<Client>();
         public Bank()
         {
-            
+
         }
         public List<Client> Clients
         {
@@ -182,7 +212,7 @@ namespace Fifth
             }
             set
             {
-                if(value.GetType() == typeof(Client))
+                if (value.GetType() == typeof(Client))
                 {
                     clients = value;
                 }
@@ -201,10 +231,11 @@ namespace Fifth
         public void PrintClient()
         {
             Console.WriteLine("                   Список");
-            for (int i = 0; i < clients.LongCount(); i++) {
+            for (int i = 0; i < clients.LongCount(); i++)
+            {
                 Console.WriteLine($"   {i + 1}.");
                 Console.WriteLine($"{clients[i].ToString()}");
-                    }
+            }
         }
     }
     class Controller
@@ -214,29 +245,75 @@ namespace Fifth
         {
             Bank = bank;
         }
-        public double  GeneralSum(Client client)
+        public double GeneralSum(Client client)
         {
             Account[] accounts;
             double generalSum = 0;
-            for(int i = 0; i < Bank.Clients.Capacity; i++)
+            for (int i = 0; i < Bank.Clients.Capacity; i++)
             {
                 if (Bank.Clients[i].Equals(client))
                 {
                     accounts = client.Accounts;
-                    for(int j = 0; j < accounts.Length; j++)
+                    for (int j = 0; j < accounts.Length; j++)
                     {
-                        generalSum =+ accounts[i].Sum;
-                    } 
+                        generalSum = +accounts[i].Sum;
+                    }
                 }
             }
             return generalSum;
         }
     }
+     class ClientException : Exception
+    {
+        public ClientException() : base()
+        {
 
+        }
+        public ClientException(string message) : base(message)
+        {
+
+        }
+        public ClientException(string message, Exception inner) : base(message, inner)
+        {
+            
+        }
+    }
+     class AccountException : ClientException
+    {
+        public AccountException() : base()
+        {
+
+        }
+        public AccountException(string message) : base(message)
+        {
+
+        }
+        public AccountException(string message, Exception inner) : base(message, inner)
+        {
+
+        }
+    }
+    class BankException : Exception
+    {
+        public BankException() : base()
+        {
+
+        }
+        public BankException(string message) : base(message)
+        {
+
+        }
+        public BankException(string message, Exception inner) : base(message, inner)
+        {
+
+        }
+    }
     class Program
     {
         static void Main(string[] args)
         {
+            try
+            {
             Client client1 = new Client("Masha", "Ivanova", "Minsk str.Vaneeva h.130", "3432tfret534", "34342rfeer3454g");
             Client client2 = new Client("Alexander", "Petrov", "minsk pr.Rokossovskogo h.132", "45tfdrgdfg45", "454gtr565hu");
 
@@ -257,8 +334,28 @@ namespace Fifth
 
             Controller nom1 = new Controller(Belarusbank);
             nom1.GeneralSum(client1);
-
+            }
+            catch (AccountException ac_ex)
+            {
+                Console.WriteLine(ac_ex.Message);
+            }
+            catch (ClientException cl_ex)
+            {
+                Console.WriteLine(cl_ex.Message);
+            }
+            catch (BankException bk_ex)
+            {
+                Console.WriteLine(bk_ex.Message);
+            }
+            catch (Exception ex) { }
+            finally
+            {
+                Console.WriteLine("Вызван блок finally");
+            }
             Console.ReadKey();
         }
     }
 }
+
+
+

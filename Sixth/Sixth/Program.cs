@@ -18,7 +18,6 @@ namespace Sixth
     }
     struct Arr
     {
-        private string inter;
     }
      abstract class Person
     {
@@ -42,11 +41,11 @@ namespace Sixth
         private string PassportNumber;
         private string IDNumber;
         private int counterAccounts = 0;
-        private Account[] accounts = new Account[5];
+        private Account[] accounts= new Account[10];
         public Client(string name, string surname, string address, string passportNumber, string idNumber)
             : base(name, surname, address)
         {
-            if(passportNumber.GetType() != PassportNumber.GetType())
+            if(!passportNumber.Contains("R"))
             {
                 throw new ClientException("Неверно введен номер паспорта!");
             }
@@ -54,7 +53,7 @@ namespace Sixth
             {
                 PassportNumber = passportNumber;
             }
-            if (idNumber.GetType() != IDNumber.GetType())
+            if (idNumber.GetType() != typeof(string))
             {
                 throw new ClientException("Неверно введен идентификационный номер паспорта!");
             }
@@ -68,6 +67,40 @@ namespace Sixth
             get
             {
                 return accounts;
+            }
+        }
+        public int CounterAccount
+        {
+            get
+            {
+                return counterAccounts;
+            }
+        }
+        public Account this[int i]
+        {
+            get
+
+            {
+                if (i >= 0 && i < counterAccounts)
+                {
+                    return accounts[i];
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect index");
+                    return null;
+                }
+            }
+            set
+            {
+                if (i >= 0 && i < counterAccounts)
+                {
+                    accounts[i] = value;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect index");
+                }
             }
         }
         public void GetAccount(Account account)
@@ -98,21 +131,22 @@ namespace Sixth
             return String.Format("ID number - " + IDNumber + "\n" + "PassportNumber - " + PassportNumber + "\n");
         }
     }
-        abstract class Account : IOperations
+        class Account : IOperations
     {
         private double sum;
         private string AccountNumber;
+        public Account(){}
         public Account(string accountNumber, double Summa)
         {
-            if (accountNumber.GetType() != AccountNumber.GetType())
+            if (!accountNumber.Contains("BY"))
             {
-                throw new AccountException("неправильно введен номер счета");
+                throw new AccountException("Неверно введен номер счета!");
             }
             else
             {
                 AccountNumber = accountNumber;
             }
-            if (sum.GetType() != Summa.GetType())
+            if (sum.GetType() != typeof(double))
             {
                 throw new AccountException("неправильно введена сумма");
             }
@@ -120,17 +154,16 @@ namespace Sixth
             {
                 sum += Summa;
             }
-            sum += Summa;
         }
         public double Sum
         {
             get
             {
-                return Sum;
+                return sum;
             }
         }
+        public virtual void GetInformation() { }
         public virtual void BlockAccount() { }
-        public abstract void GetInformation();
         void IOperations.TransferMoney() { }
         void IOperations.WithdrawMoney() { }
 
@@ -198,7 +231,7 @@ namespace Sixth
     }
     class Bank
     {
-        static int numbersOfClients = 0;
+        private int numbersOfClients = 0;
         List<Client> clients = new List<Client>();
         public Bank()
         {
@@ -218,6 +251,40 @@ namespace Sixth
                 }
             }
         }
+        public Client this[int i]
+        {
+            get
+
+            {
+                if (i >= 0 && i < numbersOfClients)
+                {
+                    return clients[i];
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect index");
+                    return null;
+                }
+            }
+            set
+            {
+                if (i >= 0 && i < numbersOfClients)
+                {
+                    clients[i] = value;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect index");
+                }
+            }
+        }
+        public int NumberOfClients
+            {
+            get
+            {
+                return numbersOfClients;
+            }
+            }
         public void AddClient(Client client)
         {
             clients.Add(client);
@@ -247,23 +314,24 @@ namespace Sixth
         }
         public double GeneralSum(Client client)
         {
-            Account[] accounts;
+            Account[] accounts = client.Accounts;
+            List <Client> clientiki = Bank.Clients;
             double generalSum = 0;
-            for (int i = 0; i < Bank.Clients.Capacity; i++)
+            for (int i = 0; i < Bank.NumberOfClients; i++)
             {
-                if (Bank.Clients[i].Equals(client))
+                if (clientiki[i].Equals(client))
                 {
-                    accounts = client.Accounts;
-                    for (int j = 0; j < accounts.Length; j++)
+                    for (int j = 0; j < client.CounterAccount; j++)
                     {
-                        generalSum = +accounts[i].Sum;
+                        generalSum += accounts[j].Sum;
                     }
                 }
             }
+            Console.WriteLine($"Общая сумма 1го клиента  = {generalSum}");
             return generalSum;
         }
     }
-     class ClientException : Exception
+    class ClientException : Exception
     {
         public ClientException() : base()
         {
@@ -278,7 +346,7 @@ namespace Sixth
             
         }
     }
-     class AccountException : ClientException
+    class AccountException : ClientException
     {
         public AccountException() : base()
         {
@@ -308,50 +376,79 @@ namespace Sixth
 
         }
     }
+    class DevideByZero : Exception
+    {
+        public DevideByZero() : base()
+        {
+
+        }
+        public DevideByZero(string message) : base(message)
+        {
+
+        }
+        public DevideByZero(string message, Exception inner) : base(message, inner)
+        {
+
+        }
+    } 
     class Program
     {
         static void Main(string[] args)
         {
             try
             {
-            Client client1 = new Client("Masha", "Ivanova", "Minsk str.Vaneeva h.130", "3432tfret534", "34342rfeer3454g");
-            Client client2 = new Client("Alexander", "Petrov", "minsk pr.Rokossovskogo h.132", "45tfdrgdfg45", "454gtr565hu");
-
-            CurrencyAccount currencyAccount1 = new CurrencyAccount("BY33frse3423fr283", "EUR", 200);
-            DepositAccount depositAccount1 = new DepositAccount("gfdgrr4fer2fre6g", 100);
-            client1.GetAccount(currencyAccount1);
-            client1.GetAccount(depositAccount1);
-
-            CurrentAccount currentAccount2 = new CurrentAccount("BY32gf43tgr5", 900);
-            CurrencyAccount currencyAccount2 = new CurrencyAccount("BY33fr343423fr283", "BYN", 1200);
-            client2.GetAccount(currentAccount2);
-            client2.GetAccount(currencyAccount2);
-
-            Bank Belarusbank = new Bank();
-            Belarusbank.AddClient(client1);
-            Belarusbank.AddClient(client2);
-            Belarusbank.PrintClient();
-
-            Controller nom1 = new Controller(Belarusbank);
-            nom1.GeneralSum(client1);
-            }
-            catch (AccountException ac_ex)
-            {
-                Console.WriteLine(ac_ex.Message);
+                Client client2 = new Client("Alexander", "Petrov", "minsk pr.Rokossovskogo h.132", "45tfdrgdfg45", "454gtr565hu");
             }
             catch (ClientException cl_ex)
             {
                 Console.WriteLine(cl_ex.Message);
             }
+            Client client1 = new Client("Masha", "Ivanova", "Minsk str.Vaneeva h.130", "R534", "34342rfeer3454g");
+            Client client3 = new Client("Aleksey", "Sidorov", "minsk pr.Partizansky h.128", "R45tfdrgdfg45", "454g567tg65hu");
+
+            try
+            {
+                DepositAccount depositAccount1 = new DepositAccount("gfdgrr4fer2fre6g", 100);
+            }
+            catch (AccountException ac_ex)
+            {
+                Console.WriteLine(ac_ex.Message);
+            }
+            CurrencyAccount currencyAccount1 = new CurrencyAccount("BY33frse3423fr283", "EUR", 200);
+            client1.GetAccount(currencyAccount1);
+
+            Bank Belarusbank = new Bank();
+            Belarusbank.AddClient(client1);
+            Belarusbank.AddClient(client3);
+
+            try
+            {
+                Controller nom1 = new Controller(Belarusbank);
+                nom1.GeneralSum(client1);
+            }
             catch (BankException bk_ex)
             {
                 Console.WriteLine(bk_ex.Message);
             }
-            catch (Exception ex) { }
+
+
+            try
+            {
+                int b = 0;
+                if (b == 0)
+                {
+                    throw new DevideByZero("Devide by zero exception");
+                }
+            }
+            catch (DevideByZero zero_ex)
+            {
+                Console.WriteLine(zero_ex.Message);
+            }
             finally
             {
                 Console.WriteLine("Вызван блок finally");
             }
+
             Console.ReadKey();
         }
     }

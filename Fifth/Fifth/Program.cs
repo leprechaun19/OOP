@@ -55,6 +55,13 @@ namespace Fifth
                 return accounts;
             }
         } 
+        public int CounterAccount
+        {
+            get
+            {
+                return counterAccounts;
+            }
+        }
         public void GetAccount(Account account)
         {
             accounts[counterAccounts] = account;
@@ -168,11 +175,18 @@ namespace Fifth
     }
     class Bank
     {
-        static int numbersOfClients = 0;
+        private int numbersOfClients = 0;
         List<Client> clients = new List<Client>();
         public Bank()
         {
             
+        }
+        public int NumberOfClients
+        {
+            get
+            {
+                return numbersOfClients;
+            }
         }
         public List<Client> Clients
         {
@@ -185,6 +199,32 @@ namespace Fifth
                 if(value.GetType() == typeof(Client))
                 {
                     clients = value;
+                }
+            }
+        }
+        public Client this[int i]
+        {
+            get
+            {
+                if (i >= 0 && i < numbersOfClients)
+                {
+                    return clients[i];
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect index");
+                    return null;
+                }
+            }
+            set
+            {
+                if (i >= 0 && i < numbersOfClients)
+                {
+                    clients[i] = value;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect index");
                 }
             }
         }
@@ -214,21 +254,22 @@ namespace Fifth
         {
             Bank = bank;
         }
-        public double  GeneralSum(Client client)
+        public double GeneralSum(Client client)
         {
-            Account[] accounts;
+            Account[] accounts = client.Accounts;
+            List<Client> clientiki = Bank.Clients;
             double generalSum = 0;
-            for(int i = 0; i < Bank.Clients.Capacity; i++)
+            for (int i = 0; i < Bank.NumberOfClients; i++)
             {
-                if (Bank.Clients[i].Equals(client))
+                if (clientiki[i].Equals(client))
                 {
-                    accounts = client.Accounts;
-                    for(int j = 0; j < accounts.Length; j++)
+                    for (int j = 0; j < client.CounterAccount; j++)
                     {
-                        generalSum =+ accounts[i].Sum;
-                    } 
+                        generalSum += accounts[j].Sum;
+                    }
                 }
             }
+            Console.WriteLine($"Общая сумма 1го клиента  = {generalSum}");
             return generalSum;
         }
     }

@@ -1,0 +1,7 @@
+C:\Users\User\source\Sixth\Sixth\bin\Debug\Sixth.exe.config
+C:\Users\User\source\Sixth\Sixth\bin\Debug\Sixth.exe
+C:\Users\User\source\Sixth\Sixth\bin\Debug\Sixth.pdb
+C:\Users\User\source\Sixth\Sixth\obj\Debug\Sixth.csprojResolveAssemblyReference.cache
+C:\Users\User\source\Sixth\Sixth\obj\Debug\Sixth.csproj.CoreCompileInputs.cache
+C:\Users\User\source\Sixth\Sixth\obj\Debug\Sixth.exe
+C:\Users\User\source\Sixth\Sixth\obj\Debug\Sixth.pdb

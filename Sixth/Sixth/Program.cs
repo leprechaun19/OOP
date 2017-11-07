@@ -331,7 +331,7 @@ namespace Sixth
             return generalSum;
         }
     }
-    class ClientException : Exception
+    class ClientException : BankException
     {
         public ClientException() : base()
         {
@@ -448,7 +448,8 @@ namespace Sixth
             {
                 Console.WriteLine("Вызван блок finally");
             }
-
+            int[] arr = null;
+            Debug.Assert(arr != null, "ошибонька");
             Console.ReadKey();
         }
     }

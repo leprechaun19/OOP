@@ -5,3 +5,10 @@ C:\Users\Андрей\source\repos\Second\Second\obj\Debug\Second.csprojResolveA
 C:\Users\Андрей\source\repos\Second\Second\obj\Debug\Second.csproj.CoreCompileInputs.cache
 C:\Users\Андрей\source\repos\Second\Second\obj\Debug\Second.exe
 C:\Users\Андрей\source\repos\Second\Second\obj\Debug\Second.pdb
+C:\Users\User\source\Second\Second\bin\Debug\Second.exe.config
+C:\Users\User\source\Second\Second\bin\Debug\Second.exe
+C:\Users\User\source\Second\Second\bin\Debug\Second.pdb
+C:\Users\User\source\Second\Second\obj\Debug\Second.csprojResolveAssemblyReference.cache
+C:\Users\User\source\Second\Second\obj\Debug\Second.csproj.CoreCompileInputs.cache
+C:\Users\User\source\Second\Second\obj\Debug\Second.exe
+C:\Users\User\source\Second\Second\obj\Debug\Second.pdb

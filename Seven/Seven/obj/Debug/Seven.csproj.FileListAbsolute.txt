@@ -1,0 +1,7 @@
+C:\Users\User\source\Seven\Seven\bin\Debug\Seven.exe.config
+C:\Users\User\source\Seven\Seven\bin\Debug\Seven.exe
+C:\Users\User\source\Seven\Seven\bin\Debug\Seven.pdb
+C:\Users\User\source\Seven\Seven\obj\Debug\Seven.csprojResolveAssemblyReference.cache
+C:\Users\User\source\Seven\Seven\obj\Debug\Seven.csproj.CoreCompileInputs.cache
+C:\Users\User\source\Seven\Seven\obj\Debug\Seven.exe
+C:\Users\User\source\Seven\Seven\obj\Debug\Seven.pdb

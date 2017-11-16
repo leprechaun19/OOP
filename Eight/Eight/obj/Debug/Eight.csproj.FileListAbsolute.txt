@@ -1,0 +1,7 @@
+C:\Users\User\source\Eight\Eight\bin\Debug\Eight.exe.config
+C:\Users\User\source\Eight\Eight\bin\Debug\Eight.exe
+C:\Users\User\source\Eight\Eight\bin\Debug\Eight.pdb
+C:\Users\User\source\Eight\Eight\obj\Debug\Eight.csprojResolveAssemblyReference.cache
+C:\Users\User\source\Eight\Eight\obj\Debug\Eight.csproj.CoreCompileInputs.cache
+C:\Users\User\source\Eight\Eight\obj\Debug\Eight.exe
+C:\Users\User\source\Eight\Eight\obj\Debug\Eight.pdb

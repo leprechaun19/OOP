@@ -1,0 +1,7 @@
+C:\Users\User\source\WorkWithThreads\WorkWithThreads\obj\Debug\WorkWithThreads.csprojResolveAssemblyReference.cache
+C:\Users\User\source\WorkWithThreads\WorkWithThreads\obj\Debug\WorkWithThreads.csproj.CoreCompileInputs.cache
+C:\Users\User\source\WorkWithThreads\WorkWithThreads\bin\Debug\WorkWithThreads.exe.config
+C:\Users\User\source\WorkWithThreads\WorkWithThreads\bin\Debug\WorkWithThreads.exe
+C:\Users\User\source\WorkWithThreads\WorkWithThreads\bin\Debug\WorkWithThreads.pdb
+C:\Users\User\source\WorkWithThreads\WorkWithThreads\obj\Debug\WorkWithThreads.exe
+C:\Users\User\source\WorkWithThreads\WorkWithThreads\obj\Debug\WorkWithThreads.pdb

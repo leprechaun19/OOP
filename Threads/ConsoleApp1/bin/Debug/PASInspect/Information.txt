@@ -1,0 +1,38 @@
+namespace - Reflection
+
+full name - Reflection.Software
+
+base type - System.Object
+
+–––––––––––––––––--––––
+
+
+Методы класса Software
+- POInformation
+- Work
+- Upgrade
+- get_name
+- Working
+- ToString
+- Equals
+- GetHashCode
+- GetType
+–––––––––––––––––--––––
+
+Поля класса Software
+- number
+- Name
+- Version
+- Destination
+––––––––––––––––---–––––
+
+Информация о классе Software
+Базовый класс - System.Object
+Абстрактный?: False
+Защищённый класc?: False
+–––––––––––––––––––––––––––
+
+Свойства класса Software
+ - name
+–––––––––––––––––––––––––––
+
